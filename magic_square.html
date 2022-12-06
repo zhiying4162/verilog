@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>魔術方陣</title>
+<script>
+	
+    function magic(ans) {
+        var n=ans.length-1;
+        var x=(n+1)/2;
+        var y=1;
+        ans[y][x]=1;
+        for(var i=2;i<=n*n;i++){ //當右上角有數字時往下放
+            if(i%n==1){
+                y++;
+            }     
+            else{    
+                x++;
+                y--;
+                if(y<=0){  //若上方有數字時放置最底下
+                    y=n;
+                }
+                else if(x>n){ //若右邊有數字時放置左邊
+                    x=1;
+                }
+            }
+            ans[y][x]=i;
+        }
+        return ans;
+    }
+    ans=InputEvent.toString();
+		
+</script>
+</head>
+<body>
+    <p>
+    輸入想要的魔術方陣 <input type="text"></input>
+    </p>
+    <table id="magic" border="1" cellspacing="0" cellpadding="5">
+        <tbody>
+        </tbody>
+    </table>
+</body>
+</html>
