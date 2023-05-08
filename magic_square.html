@@ -10,7 +10,7 @@
     let magic=[];
     //document.write(n);
 
-    function go(){
+    table=function go(){
         var row=0;
         let col=Math.floor(n/2);
         //document.write(n);
@@ -24,7 +24,8 @@
                 col = (col + 1) % n;
             }
             magic[row,col]=i  //將i放入決定好的位置
-            //document.write(col); 
+            //document.write(col);
+            table.innerHTML 
         }
         for(let R=0;R<n;R++){
             for(let C=0;C<n;C++){
@@ -34,10 +35,17 @@
     }
     go();
 
+    //function
+
 
 </script>
 </head>
 <body>
-    
+    <div id="Ans">
+        <p>請輸入魔術方陣 <input type="number" width="60px"/>
+            <button>start</button>
+        </p>
+        <div></div>
+    </div>
 </body>
 </html>

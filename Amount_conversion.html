@@ -4,49 +4,30 @@
 <meta charset="utf-8"/>
 <title></title>
 <script>
-var number = prompt("請輸入你所要轉換的金額");
-function digitalTransfer(number) {
-    var sOut = "";
-    var numC=("壹貳參肆伍陸柒捌玖零").split('');
-    var numA=["","拾","佰","仟"];
-    var numB=["","萬","億"];
-    var numSplit=new Array();
-    var numSpiltCount=parseInt(number.length/4);
-    var Maxnumber=10;
+function stringDigitalTransfer(iInput) {
+    let numChars = ["零", "壹", "貳", "參", "肆", "伍", "陸", "柒", "捌", "玖"];
+    let unitChars = ["", "拾", "佰", "仟", "萬", "拾", "佰", "仟","億"];
+    let sOut='',i=0;
 
-    if(number>Math.pow(10,Maxnumber)){
-        return "數字太大我們只處理到億";
+    if(iInput>= 1.0E9){
+      return sOut="數字太大，我們只處理到億";
     }
-    else if(number<0){
-        return "請輸入大於0的數字";
-    }
+    
+    // 餘數 除法 陣列
 
-    for(var i=numSpiltCount-1;i>=0;i--){
-        let Startnum = Math.max(number.length - (i+1) * 4, 0);
-        let Endnum=number.length-i*4;
-        let group = sInput.slice(Startnum, Endnum);
-        let groupNum = parseInt(group, 10);
-
-        if(groupNum!==0)
+    while(iInput>0){
+      Bnum1=iInput%10;
+      sOut=numChars[Bnum1]+unitChars[i]+sOut;
+      i++;
+      iInput=Math.floor(iInput/10);
     }
-    return sOut;
-    }
-
-/*function main(){
-    var iNumber;
-    cout << "請輸入阿拉伯數字：";
-    cin >> iNumber;
-    if (iNumber >= 1.0E9)
-    cout << "數字太大了，我們只處理到億！" << endl;
-    else
-    cout << digitalTransfer(iNumber) << endl;
-    return 0;
-}*/
-    console.log(number);
+    
+    return sOut=sOut+"元整";
+}
+var iInput=String(parseInt(prompt("請輸入阿拉伯數字：")));
+document.write(stringDigitalTransfer(iInput));
 </script>
 </head>
 <body>
-
-
 </body>
 </html>
