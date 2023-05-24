@@ -6,8 +6,20 @@
     <script>
         function verilog(number){
             let nstring=number.length;
-            let nOut,i=0;
-            return nstring;
+            let nOut1='',nOut2='',nAns='',i=0,k=nstring;
+            for(i=0;i<nstring/2;i++){
+                nOut1+=number[i];
+            }
+            for(k=nstring;k>(nstring/2)-1;k--){
+                nOut2+=number[k];
+            }
+            if(nOut1===nOut2){
+                nAns=number+'是一個反向符號';
+            }
+            else{
+                nAns=number+'不是一個反向符號';
+            }
+            return nAns;
         }
 
         let number=prompt("請輸入數字或英文符號");
