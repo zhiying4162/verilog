@@ -6,14 +6,14 @@
     <script>
         function verilog(number){
             let nstring=number.length;
-            let nOut1='',nOut2='',nAns='',i=0,k=nstring;
+            let nOut1='',nOut2='',nAns='',i=0,k=0;
+
             for(i=0;i<nstring/2;i++){
                 nOut1+=number[i];
+                nOut2+=number[nstring-(i+1)];
             }
-            for(k=nstring;k>(nstring/2)-1;k--){
-                nOut2+=number[k];
-            }
-            if(nOut1===nOut2){
+
+            if(nOut1==nOut2){
                 nAns=number+'是一個反向符號';
             }
             else{
@@ -24,9 +24,11 @@
 
         let number=prompt("請輸入數字或英文符號");
         document.write(verilog(number));
+
+
     </script>
 </head>
 <body>
-    
+
 </body>
 </html>
